@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artist Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<% if !logged_in? %>
+<% redirect_to root %>
+<% end %>
+<section class="container4" style="height: 20px">
+<div class="logout_button"><%= link_to "log out", logout_path, method: :delete%></div>
+<div class="search_button"><%= link_to "search artist", root_path %></div>
+</section>
+<section class="container3">
+<div class="left1"><img src=<%=@res["artist"]["image"][2]['#text']%> alt="image" ></div>
+<div class="right1">
+<div id="artist_name"><%= @res["artist"]["name"] %><br></div>
+ mbid - <%= @res["artist"]["mbid"] %><br>
+<a href=<%= @res["artist"]["url"] %>> see this artist on last fm </a><br>
+<% if @res["artist"]["streamable"] %>
+ streamable : yes <br>
+<% else %>
+ streamable : no <br><% end %>
+<%= @res["artist"]["stats"]["listeners"]%> listeners<br>
+<%= @res["artist"]["stats"]["playcount"]%> playcount<br>
+</div>
+</section>
+ <section class="container4" style="height:auto"><div class="summary_title">summary</div> 
+<p><%= @res["artist"]["bio"]["summary"]%></p></section>
+<section class="container4"><div class="summary_title">Similar Artists</div><br><br>
+<% @res["artist"]["similar"]["artist"].each do |similar| %>
+   <div class="artist_grid">
+   <div class="similar_artist_name"><%= similar["name"] %><br></div>
+   <a href=<%= similar["url"] %>> see this artist on last fm </a><br>
+   <div class="similar_artist_img"><img src=<%= similar["image"][1]['#text']%> alt="image" > </div>
+   </div>
+<% end %>
+</section>
+</body>
+</html>

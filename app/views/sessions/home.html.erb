@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<% if logged_in? %>
+<section class="container4" style="height: 20px">
+<div class="logout_button"><%= link_to "history", history_path, class: 'button'%></div>
+<div class="search_button"><%= link_to "Log out", logout_path, method: :delete %></div>
+</section>
+
+<div id="header">
+
+<div id="header_text">
+  Welcome <%= current_user.name %></div>
+  </div>
+
+  <%= form_for(:term, url: term_path) do |f| %>
+  <section class="container2">
+    <div class = "up">
+      <%= f.label :'Enter Name of Artist' %>
+      <%= f.text_field :text, class: 'form-control' %>
+    </div></section>
+    <section class="container2">
+    <div class="up1">
+      <%= f.submit "search", class: "btn btn-primary" %>
+      </div></section>
+    <% end %>
+  
+<% else %>
+<div id="header">
+
+<div id="header_text">
+  Welcome </div>
+  </div>
+
+  <div id="main"></div>
+  <section class="container">
+  <div class = "left">
+
+    <%= link_to "log in", login_path, class: 'button'%></div>
+    <div class="right">
+    <%= link_to "sign up", signup_path, class: 'button' %> </div>
+    
+  </div>
+  </section>
+  
+<% end %>
+
+</body>
+</html>

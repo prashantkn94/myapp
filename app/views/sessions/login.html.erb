@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+ <div id="header">
+
+<div id="header_text">
+  Login </div>
+  </div>
+  
+<%= form_for(:session, url: login_path) do |f| %>
+<section class="container2">
+		<div class = "up">
+      <div id="label1"><%= f.label :email %></div>
+      <div id="input1"><%= f.email_field :email%></div>
+</div></section>
+
+<section class="container2">
+		<div class = "up">
+      <div id="label1"><%= f.label :password %></div>
+      <div id="input1"><%= f.password_field :password%></div>
+</div></section>
+<section class="container2">
+<div class="up1">
+      <%= f.submit "Log in"%>
+      </div>
+      </section>
+      <% end %>
+
+<section class="container2">
+<div class="center2">
+New user? <%= link_to "Sign up now!", signup_path %></div></section>
+
+</body>
+</html>
