@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
-  	if logged_in?
-  		redirect_to root_path
+    if logged_in?
+      redirect_to root_path
     else
       render 'login'
      end
@@ -28,5 +28,4 @@ class SessionsController < ApplicationController
       redirect_to action: "new"
     end
   end
-
 end

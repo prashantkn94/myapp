@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it "is a valid user" do
-  	user = User.new(name: 'prashant', email:'prashantkn94@gmail.com',
+    user = User.new(name: 'prashant', email:'prashantkn94@gmail.com',
   		            password:'123456', password_confirmation:'123456')
-  	expect(user).to be_valid
+    expect(user).to be_valid
    end
 
    it "is not a valid user do" do
