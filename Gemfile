@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-gem "rspec"
+gem "rspec", '3.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 # Use sqlite3 as the database for Active Record
@@ -30,7 +30,7 @@ gem 'bcrypt', '3.1.11'
 gem 'bootstrap-sass', '3.3.7'
 
 gem 'jquery-rails', '4.3.1'
-gem 'httparty'
+gem 'httparty', '0.16.2'
 
 group :development do
   gem "web-console", ">= 3.3.0"
@@ -55,6 +55,6 @@ group :test do
 end
 
 group :production do
-    gem 'pg'
+    gem 'pg', '1.0.0'
 end
 
