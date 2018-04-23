@@ -8,7 +8,7 @@ gem "rspec"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -43,6 +43,7 @@ group :development, :test do
   gem "rspec-rails", ">= 2.0.0"
   gem "factory_girl_rails", "~> 4.2.1"
   gem 'rails', '~> 5.1.4'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -51,5 +52,9 @@ group :test do
   gem "database_cleaner", "~> 1.0.1"
   gem "launchy","~> 2.3.0"
   gem "selenium-webdriver", "~> 2.35.1"
-end	
+end
+
+group :production do
+    gem 'pg'
+end
 
